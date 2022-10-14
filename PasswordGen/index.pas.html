@@ -10,11 +10,17 @@
     <h1>Password Generator</h1>
 <body>
     <section id="genpass">
-        <div id="pswlen">
-            <input type="number" id="plen" value=12> Length
+        <div id="pswset">
+            <p>
+                <input type="number" id="pqtt" value=1> Quantity
+            </p>
+            <p>
+                <input type="number" id="plen" value=12> Length
+            </p>
         </div>
         <input type="text" id="txtgenpass" name="genpass">
         <input type="button" name="btngenpass" value="Generate" onclick="genpass()">
+        <div id="res"></div>
     </section>
     <script src="script.js"></script>
 </body>
