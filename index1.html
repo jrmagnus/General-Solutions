@@ -9,9 +9,13 @@
     <h1>General Solutions</h1>
 <body>
     <section id="genpass">
+        <div id="pswlen">
+            <input type="number" id="plen" value=12> Length
+        </div>
         <input type="text" id="txtgenpass" name="genpass">
         <input type="button" name="btngenpass" value="Generate" onclick="genpass()">
     </section>
+    <!--
     <section id="macadrs">
         <input type="text" id="txtmacadrs" name="macadrs">
         <input type="button" name="btnmacadrs" value="Change" onclick="macadrs()">
@@ -20,16 +24,35 @@
         <input type="text" id="txtcidcalc" name="cidcalc">
         <input type="button" name="btncidcalc" value="Calc" onclick="cidcalc()">
     </section>
+    -->
     <script>
         function genpass() {
             //to Password Gerenation
+            document.getElementById("txtgenpass").value = ''
+            let psw = document.getElementById('txtgenpass').value
+            var chars = "0123456789abcdefghjkmnopqrstuvwxyzABCDEFGHIJKLMNPQRSTUVWXYZ";
+            var pswlen = (document.getElementById('plen').value - 1)
+
+            //create password
+            for (var i = 0; i <= pswlen; i++) {
+                var randomNumber = Math.floor(Math.random() * chars.length);
+                psw += chars.substring(randomNumber, randomNumber +1);
+               }
+            
+            //copy password to clipboard
+            document.getElementById("txtgenpass").value = psw
+            var copyText = document.getElementById("txtgenpass");
+            copyText.select();
+            document.execCommand("copy");
         }
+        /*
         function macadrs() {
             //to change MacAddress format to ex. AB:CD:EF:01:23:45
         }
         function cidcalc() {
             //to calculate CIDR of networks ex. 10.0.0.1/30 is 10.0.0.0-10.0.0.4
         }
+        */
     </script>
 </body>
 </html>
