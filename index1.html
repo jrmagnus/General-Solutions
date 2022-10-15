@@ -6,9 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
-            margin: 10px;
-            font: normal 12pt Inter;
-            background-color: honeydew;
+            font: normal 14pt Inter;
+            background-color: rgb(22, 22, 22);
+            color: rgb(187, 185, 166);
+        }
+
+        input {
+            background-color: #363022;
+            color: rgb(187, 185, 166);
+            padding: 3px;
+        }
+        footer {
+            color:black;
         }
     </style>
     <title>General Solutions</title>
@@ -16,6 +25,7 @@
     <h1>General Solutions</h1>
 <body>
     <section id="genpass">
+        Password Generator
         <div id="pswset">
             <p>
                 <input type="number" id="pqtt" value=1> Quantity
@@ -39,6 +49,11 @@
         <input type="button" name="btncidcalc" value="Calc" onclick="cidcalc()">
     </section>
     -->
+    <footer>
+        <p>
+            <a href="https://github.com/jrmagnus">&copy; JrMagnus</a>
+        </p>
+    </footer>
     <script>
         //to Password Gerenation
         function genpass() {    
