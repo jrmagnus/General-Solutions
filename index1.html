@@ -4,16 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 10px;
+            font: normal 12pt Inter;
+            background-color: honeydew;
+        }
+    </style>
     <title>General Solutions</title>
 </head>
     <h1>General Solutions</h1>
 <body>
     <section id="genpass">
-        <div id="pswlen">
-            <input type="number" id="plen" value=12> Length
+        <div id="pswset">
+            <p>
+                <input type="number" id="pqtt" value=1> Quantity
+            </p>
+            <p>
+                <input type="number" id="plen" value=12> Length
+            </p>
         </div>
         <input type="text" id="txtgenpass" name="genpass">
         <input type="button" name="btngenpass" value="Generate" onclick="genpass()">
+        <ol id="res">
+        </ol>
     </section>
     <!--
     <section id="macadrs">
@@ -26,20 +40,46 @@
     </section>
     -->
     <script>
-        function genpass() {
-            //to Password Gerenation
+        //to Password Gerenation
+        function genpass() {    
+            //clear textbox
             document.getElementById("txtgenpass").value = ''
-            let psw = document.getElementById('txtgenpass').value
-            var chars = "0123456789abcdefghjkmnopqrstuvwxyzABCDEFGHIJKLMNPQRSTUVWXYZ";
+            var psw = document.getElementById('txtgenpass').value
+            var res = document.getElementById('res')
+            res.innerHTML = ''
+
+            //get info
+            var pqtt = document.getElementById('pqtt').value
+            var chars = "0123456789abcdefghijkmnopqrstuvwxyzABCDEFGHIJKLMNPQRSTUVWXYZ";
             var pswlen = (document.getElementById('plen').value - 1)
 
             //create password
-            for (var i = 0; i <= pswlen; i++) {
-                var randomNumber = Math.floor(Math.random() * chars.length);
-                psw += chars.substring(randomNumber, randomNumber +1);
-               }
-            
-            //copy password to clipboard
+            if (pqtt > 1) {
+                if (pqtt > 99999) {
+                    pqtt = 99999
+                    document.getElementById('pqtt').value = pqtt
+                    alert(`Max passwords that can be created is ${pqtt}`)
+                }
+                pqtt--
+                for(var i = 0; i <= pqtt; i++) {
+                    var psw1 = ''
+                    for (var j = 0; j <= pswlen; j++) {
+                        var randomNumber = Math.floor(Math.random() * chars.length);
+                        psw1 += chars.substring(randomNumber, randomNumber +1);
+                    }
+                    //create an ordered list
+                    let item = document.createElement('li')
+                    item.innerText = psw1
+                    res.appendChild(item)
+                    }
+            } else {
+                for (var i = 0; i <= pswlen; i++) {
+                    var randomNumber = Math.floor(Math.random() * chars.length);
+                    psw += chars.substring(randomNumber, randomNumber +1);
+                   }
+            }
+
+            //copy to clipboard
             document.getElementById("txtgenpass").value = psw
             var copyText = document.getElementById("txtgenpass");
             copyText.select();
