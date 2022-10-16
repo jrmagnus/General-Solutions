@@ -1,0 +1,30 @@
+:root {
+    --bg-color: rgb(20, 20, 20);
+    --card-color: rgb(23, 23, 23);
+    --title-color: rgb(214, 211, 230);
+}
+
+body {
+    align-items: center;
+    background-color: var(--bg-color);
+    height: 100vh;
+    width: 100vh;
+    justify-content: center;
+    margin: 0px;
+    overflow: hidden;
+    padding: 0px;
+}
+  
+#sections {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;  
+    max-width: 916px;
+    width: calc(100% - 20px);
+}
+
+header {
+    text-align: center;
+    color: var(--title-color)
+}
+
