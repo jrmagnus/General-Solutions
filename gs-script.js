@@ -13,8 +13,8 @@ function genpsw() {
 
     //create password
     if (pqtt > 1) {
-        if (pqtt > 99999) {
-            pqtt = 99999
+        if (pqtt > 9999) {
+            pqtt = 9999
             document.getElementById('pqtt').value = pqtt
             alert(`Max passwords that can be created is ${pqtt}`)
         }

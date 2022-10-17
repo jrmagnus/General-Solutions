@@ -22,9 +22,8 @@ body {
     background: var(--bg-color);
     height: 100vh;
     justify-content: center;
-    overflow: hidden;
+    //overflow: hidden;
     padding: 0px;
-    
 }
 
 #cards {
