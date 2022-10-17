@@ -11,7 +11,7 @@
     <title>General Solutions</title>
 </head>
 <header>
-    <h1>JrMagnus</h1>
+    <h1>JrMagnus link</h1>
     <h2>General Solutions</h2>
 </header>
 <body>
@@ -22,7 +22,19 @@
                     Mac Address Formater
                 </div>
                 <div id="macaddress" class="macaddress">
-                    <input type="text" class="form__input" id="name" placeholder="MAC Address" required="" />
+                    <input type="text" class="form__input" id="txtmac" placeholder="MAC Address" required="" />
+                    <p>
+                        Symbol:
+                        <input type="radio" name="raddiv" id="spacer1" class="macspacer">
+                        <label for="spacer1"> : </label>
+                        <input type="radio" name="raddiv" id="spacer2" class="macspacer">
+                        <label for="spacer1"> - </label>
+                        <input type="radio" name="raddiv" id="spacer3" class="macspacer">
+                        <label for="spacer1"> . </label>
+                    </p>
+                    <p>
+                        <input type="button" class=button value="Format" id="macaddressbtn" onclick="macadrs()">
+                    </p>
                 </div>
             </div>
         </div>
@@ -35,6 +47,9 @@
                     Length
                     Quantity
                 </div>
+                <input type="text" id="txtgenpass" name="genpass">
+                <input type="button" class="button" name="btngenpass" value="Generate" onclick="genpass()">
+                <ol id="res"></ol>
             </div>
         </div>
         <div class="card">
@@ -45,9 +60,6 @@
             </div>
         </div>
     </div>
-    <footer>
-        Teste
-    </footer>
 <script src="gs-script.js"></script>
 </body>
 </html>
