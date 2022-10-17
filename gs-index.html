@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Raleway:wght@100;400&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="gs-style.css">
+    <title>General Solutions</title>
+</head>
+<header>
+    <h1>JrMagnus link</h1>
+    <h2>General Solutions</h2>
+</header>
+<body>
+    <div id="cards">
+        <div class="card">
+            <div class="carditems">
+                <div id="cardtitle">
+                    Mac Address Formater
+                </div>
+                <div id="macaddress" class="macaddress">
+                    <input type="text" class="form__input" id="txtmac" placeholder="MAC Address" required="" />
+                    <p>
+                        Symbol:
+                        <input type="radio" name="raddiv" id="spacer1" class="macspacer">
+                        <label for="spacer1"> : </label>
+                        <input type="radio" name="raddiv" id="spacer2" class="macspacer">
+                        <label for="spacer1"> - </label>
+                        <input type="radio" name="raddiv" id="spacer3" class="macspacer">
+                        <label for="spacer1"> . </label>
+                    </p>
+                    <p>
+                        <input type="button" class=button value="Format" id="macaddressbtn" onclick="macadrs()">
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="carditems">
+                <div id="cardtitle">
+                    Password Generator
+                </div>
+                <div id="cardmenu">
+                    Length
+                    Quantity
+                </div>
+                <input type="text" id="txtgenpass" name="genpass">
+                <input type="button" class="button" name="btngenpass" value="Generate" onclick="genpass()">
+                <ol id="res"></ol>
+            </div>
+        </div>
+        <div class="card">
+            <div class="carditems">
+                <div id="cardtitle">
+                    CIDR Calculator
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="gs-script.js"></script>
+</body>
+</html>
