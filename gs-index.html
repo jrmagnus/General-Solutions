@@ -11,12 +11,12 @@
     <title>General Solutions</title>
 </head>
 <header>
-    <h1>JrMagnus link</h1>
+    <h1>JrMagnus</h1>
     <h2>General Solutions</h2>
 </header>
 <body>
     <div id="cards">
-        <div class="card">
+        <div class="card"> <!-- Mac Address Card -->
             <div class="carditems">
                 <div id="cardtitle">
                     Mac Address Formater
@@ -38,24 +38,31 @@
                 </div>
             </div>
         </div>
-        <div class="card">
+        <div class="card"> <!-- Password Generator Card -->
             <div class="carditems">
                 <div id="cardtitle">
                     Password Generator
                 </div>
-                <div id="cardmenu">
-                    Length
-                    Quantity
+                <div class="genpsw" id="genpsw">
+                    <div id="cardmenu">
+                        <div id="pswset">
+                            <input class="genpswset" type="number" id="pqtt" value=1> Quantity
+                            <input class="genpswset" type="number" id="plen" value=12> Length
+                        </div>
+                    </div>
+                    <input type="text" id="txtgenpsw" name="genpsw" placeholder="Password">
+                    <input type="button" id="btngenpsw" class="button" name="btngenpsw" value="Generate" onclick="genpsw()">
+                    <ol id="res"></ol>
                 </div>
-                <input type="text" id="txtgenpass" name="genpass">
-                <input type="button" class="button" name="btngenpass" value="Generate" onclick="genpass()">
-                <ol id="res"></ol>
             </div>
         </div>
-        <div class="card">
+        <div class="card"> <!-- CIDR Calculator Card -->
             <div class="carditems">
                 <div id="cardtitle">
                     CIDR Calculator
+                    <p>
+                        Soon...
+                    </p>
                 </div>
             </div>
         </div>
