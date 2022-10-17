@@ -46,6 +46,34 @@ function genpsw() {
 
 function macadrs() {
     //to change MacAddress format to ex. AB:CD:EF:01:23:45
+    var macadrs = document.getElementById("txtmac").value
+    if ( macadrs.length < 12 || macadrs.length > 17 ) {
+        alert("Macadress wrong length, input like, '01 23 45 67 89 0A' or '01234567890A'") 
+    } else {
+        //seletc separator icon
+        var macspacer = document.getElementsByName('raddiv')
+        var spcr = ''
+        if ( macspacer[0].checked ) {
+            var spcr = ':'
+        } else if ( macspacer[1].checked ) {
+            var spcr = '-'
+        } else if ( macspacer[2].checked ) {
+            var spcr = '.'
+        }
+        
+        //format
+        macadrs = macadrs.toUpperCase()
+        macadrs = macadrs.replace(/\W/ig, '')
+        macadrs = macadrs.replace(/(.{2})/g, "$1:")
+        macadrs= macadrs.slice(0, -1)
+        document.getElementById("txtmac").value = macadrs
+
+        //copy to clipboard
+        var copyText = document.getElementById("txtmac");
+        copyText.select();
+        document.execCommand("copy")
+    }
+
 }
 function cidcalc() {
     //to calculate CIDR of networks ex. 10.0.0.1/30 is 10.0.0.0-10.0.0.4
