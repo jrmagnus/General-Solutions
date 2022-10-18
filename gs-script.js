@@ -63,11 +63,17 @@ function macadrs() {
         
         //format
         macadrs = macadrs.toUpperCase()
+
+		// check if is hex
+		if (macadrs.match(/[G-Z]/g)) {
+			alert("This isn't a valid input");
+		}
+
         macadrs = macadrs.replace(/\W/ig, '')
-        macadrs = macadrs.replace(/(.{2})/g, "$1:")
+        macadrs = macadrs.replace(/(.{2})/g, "$1" + spcr)
         macadrs= macadrs.slice(0, -1)
         document.getElementById("txtmac").value = macadrs
-
+		
         //copy to clipboard
         var copyText = document.getElementById("txtmac");
         copyText.select();
