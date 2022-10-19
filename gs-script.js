@@ -1,57 +1,57 @@
 //to Password Gerenation
-function genpsw() {    
+function generatepassword() {    
     //clear textbox
-    document.getElementById("txtgenpsw").value = ''
-    var psw = document.getElementById('txtgenpsw').value
-    var res = document.getElementById('res')
-    res.innerHTML = ''
+    document.getElementById("txtgeneratepassword").value = ''
+    var password = document.getElementById('txtgeneratepassword').value
+    var passwordlist = document.getElementById('passwordlist')
+    passwordlist.innerHTML = ''
 
     //get info
-    var pqtt = document.getElementById('pqtt').value
+    var passwordquantity = document.getElementById('passwordquantity').value
     var chars = "0123456789abcdefghijkmnopqrstuvwxyzABCDEFGHIJKLMNPQRSTUVWXYZ";
-    var pswlen = (document.getElementById('plen').value - 1)
+    var passwordlength = (document.getElementById('passwordlength').value - 1)
 
     //create password
-    if (pqtt > 1) {
-        if (pqtt > 9999) {
-            pqtt = 9999
-            document.getElementById('pqtt').value = pqtt
-            alert(`Max passwords that can be created is ${pqtt}`)
+    if (passwordquantity > 1) {
+        if (passwordquantity > 9999) {
+            passwordquantity = 9999
+            document.getElementById('passwordquantity').value = passwordquantity
+            alert(`Max passwords that can be created is ${passwordquantity}`)
         }
-        pqtt--
-        for(var i = 0; i <= pqtt; i++) {
-            var psw1 = ''
-            for (var j = 0; j <= pswlen; j++) {
+        passwordquantity--
+        for(var i = 0; i <= passwordquantity; i++) {
+            var password1 = ''
+            for (var j = 0; j <= passwordlength; j++) {
                 var randomNumber = Math.floor(Math.random() * chars.length);
-                psw1 += chars.substring(randomNumber, randomNumber +1);
+                password1 += chars.substring(randomNumber, randomNumber +1);
             }
             //create an ordered list
             let item = document.createElement('li')
-            item.innerText = psw1
-            res.appendChild(item)
+            item.innerText = password1
+            passwordlist.appendChild(item)
             }
     } else {
-        for (var i = 0; i <= pswlen; i++) {
+        for (var i = 0; i <= passwordlength; i++) {
             var randomNumber = Math.floor(Math.random() * chars.length);
-            psw += chars.substring(randomNumber, randomNumber +1);
+            password += chars.substring(randomNumber, randomNumber +1);
            }
     }
 
     //copy to clipboard
-    document.getElementById("txtgenpsw").value = psw
-    var copyText = document.getElementById("txtgenpsw");
+    document.getElementById("txtgeneratepassword").value = password
+    var copyText = document.getElementById("txtgeneratepassword");
     copyText.select();
     document.execCommand("copy");
 }
 
-function macadrs() {
+function formatmac() {
     //to change MacAddress format to ex. AB:CD:EF:01:23:45
-    var macadrs = document.getElementById("txtmac").value
-    if ( macadrs.length < 12 || macadrs.length > 17 ) {
+    var macaddress = document.getElementById("txtmac").value
+    if ( macaddress.length < 12 || macaddress.length > 17 ) {
         alert("Macadress wrong length, input like, '01 23 45 67 89 0A' or '01234567890A'") 
     } else {
         //seletc separator icon
-        var macspacer = document.getElementsByName('raddiv')
+        var macspacer = document.getElementsByName('radialicon')
         var spcr = ''
         if ( macspacer[0].checked ) {
             var spcr = ':'
@@ -62,25 +62,44 @@ function macadrs() {
         }
         
         //format
-        macadrs = macadrs.toUpperCase()
+        macaddress = macaddress.toUpperCase()
+        macaddress = macaddress.replace(/\W/ig, '')
+        macaddress = macaddress.replace(/(.{2})/g, "$1:")
+        macaddress = macaddress.slice(0, -1)
+        document.getElementById("txtmac").value = macaddress
 
-		// check if is hex
-		if (macadrs.match(/[G-Z]/g)) {
-			alert("This isn't a valid input");
-		} else {
-			macadrs = macadrs.replace(/\W/ig, '')
-			macadrs = macadrs.replace(/(.{2})/g, "$1" + spcr)
-			macadrs= macadrs.slice(0, -1)
-			document.getElementById("txtmac").value = macadrs
-			
-			//copy to clipboard
-			var copyText = document.getElementById("txtmac");
-			copyText.select();
-			document.execCommand("copy")
-		}
-	}     
+        //copy to clipboard
+        var copyText = document.getElementById("txtmac");
+        copyText.select();
+        document.execCommand("copy")
+    }
 
 }
-function cidcalc() {
-    //to calculate CIDR of networks ex. 10.0.0.1/30 is 10.0.0.0-10.0.0.4
+function cidrCalculate() {
+	var block = document.getElementById("cidrInput").value.split("/"); // block[0] = base address, block[1] = netmask
+	var ipAddress = block[0].split('.');
+	var netmaskBlocks = ["0","0","0","0"];
+
+	// transform by decimal to binary
+	if(!/\d+\.\d+\.\d+\.\d+/.test(block[1])) { // check if the input is long notation or slash notation
+		// block[1] has to be between 0 and 32
+		netmaskBlocks = ("1".repeat(parseInt(block[1], 10)) + "0".repeat(32 - parseInt(block[1], 10))).match(/.{1,8}/g);
+		netmaskBlocks = netmaskBlocks.map(e => parseInt(e, 2));
+		var subnetMask = false
+	} else {
+		// xxx.xxx.xxx.xxx
+		netmaskBlocks = block[1].split('.').map(e => parseInt(e, 10));
+		var subnetMask = true
+	}
+
+	// invert for creating broadcast address (highest address)
+	var invertedNetmaskBlocks = netmaskBlocks.map(e => e ^ 255);
+	var baseAddress = ipAddress.map((block, idx) => block & netmaskBlocks[idx]);
+	var broadcastAddress = baseAddress.map((block, idx) => block | invertedNetmaskBlocks[idx]);
+
+	console.log(baseAddress);
+	var DHCPbase = baseAddress[0]+'.'+baseAddress[1]+'.'+baseAddress[2]+'.'+(parseInt(baseAddress[3])+1);
+	var DHCPhigher = broadcastAddress[0]+'.'+broadcastAddress[1]+'.'+broadcastAddress[2]+'.'+(parseInt(broadcastAddress[3])-1);
+
+	document.getElementById("response").value = baseAddress.join('.') + '-' + broadcastAddress.join('.') + '\n' + DHCPbase + '-' + DHCPhigher;
 }

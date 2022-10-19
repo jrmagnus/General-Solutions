@@ -25,15 +25,15 @@
                     <input type="text" class="form__input" id="txtmac" placeholder="MAC Address" required="" />
                     <p>
                         Symbol:
-                        <input type="radio" name="raddiv" id="spacer1" class="macspacer" checked>
+                        <input type="radio" name="radialicon" id="spacer1" class="macspacer" checked>
                         <label for="spacer1"> : </label>
-                        <input type="radio" name="raddiv" id="spacer2" class="macspacer">
+                        <input type="radio" name="radialicon" id="spacer2" class="macspacer">
                         <label for="spacer1"> - </label>
-                        <input type="radio" name="raddiv" id="spacer3" class="macspacer">
+                        <input type="radio" name="radialicon" id="spacer3" class="macspacer">
                         <label for="spacer1"> . </label>
                     </p>
                     <p>
-                        <input type="button" class=button value="Format" id="macaddressbtn" onclick="macadrs()">
+                        <input type="button" class=button value="Format" id="macaddressbtn" onclick="formatmac()">
                     </p>
                 </div>
             </div>
@@ -43,16 +43,16 @@
                 <div id="cardtitle">
                     Password Generator
                 </div>
-                <div class="genpsw" id="genpsw">
+                <div class="generatepassword" id="generatepassword">
                     <div id="cardmenu">
-                        <div id="pswset">
-                            <input class="genpswset" type="number" id="pqtt" value=1> Quantity
-                            <input class="genpswset" type="number" id="plen" value=12> Length
+                        <div id="passwordsettings">
+                            <input class="generatepasswordset" type="number" id="passwordquantity" value=1> Quantity
+                            <input class="generatepasswordset" type="number" id="passwordlength" value=12> Length
                         </div>
                     </div>
-                    <input type="text" id="txtgenpsw" name="genpsw" placeholder="Password">
-                    <input type="button" id="btngenpsw" class="button" name="btngenpsw" value="Generate" onclick="genpsw()">
-                    <ol id="res"></ol>
+                    <input type="text" id="txtgeneratepassword" name="generatepassword" placeholder="Password">
+                    <input type="button" id="btngeneratepassword" class="button" name="btngeneratepassword" value="Generate" onclick="generatepassword()">
+                    <ol id="passwordlist"></ol>
                 </div>
             </div>
         </div>
@@ -60,12 +60,18 @@
             <div class="carditems">
                 <div id="cardtitle">
                     CIDR Calculator
-                    <p>
-                        Soon...
-                    </p>
                 </div>
+				<div class="user_input">
+					<input id="cidrInput" placeholder="Range" class="form__input">
+					<p>
+						<input type="button" class=button value="Calculate" id="cidr_button" onclick="cidrCalculate()">
+					</p>
+				</div>
+				<textarea id="response">
+					<!-- i'm sleepy, BUT THIS IS WORKING! -->
+				</textarea>				
             </div>
-        </div>
+        </div>s
     </div>
 <script src="gs-script.js"></script>
 </body>
