@@ -64,7 +64,7 @@ function formatmac() {
         //format
         macaddress = macaddress.toUpperCase()
         macaddress = macaddress.replace(/\W/ig, '')
-        macaddress = macaddress.replace(/(.{2})/g, "$1:")
+        macaddress = macaddress.replace(/(.{2})/g, "$1" + spcr)
         macaddress = macaddress.slice(0, -1)
         document.getElementById("txtmac").value = macaddress
 
@@ -97,9 +97,15 @@ function cidrCalculate() {
 	var baseAddress = ipAddress.map((block, idx) => block & netmaskBlocks[idx]);
 	var broadcastAddress = baseAddress.map((block, idx) => block | invertedNetmaskBlocks[idx]);
 
-	console.log(baseAddress);
-	var DHCPbase = baseAddress[0]+'.'+baseAddress[1]+'.'+baseAddress[2]+'.'+(parseInt(baseAddress[3])+1);
-	var DHCPhigher = broadcastAddress[0]+'.'+broadcastAddress[1]+'.'+broadcastAddress[2]+'.'+(parseInt(broadcastAddress[3])-1);
+	document.getElementById("ipRange").value = baseAddress.join('.') + '-' + broadcastAddress.join('.');
+	console.log(block[1])
 
-	document.getElementById("response").value = baseAddress.join('.') + '-' + broadcastAddress.join('.') + '\n' + DHCPbase + '-' + DHCPhigher;
+	if (block[1] === "32") {
+		document.getElementById("DHCPrange").value = baseAddress.join('.');
+	}
+	else {
+		var DHCPbase = baseAddress[0]+'.'+baseAddress[1]+'.'+baseAddress[2]+'.'+(parseInt(baseAddress[3])+1);
+		var DHCPhigher = broadcastAddress[0]+'.'+broadcastAddress[1]+'.'+broadcastAddress[2]+'.'+(parseInt(broadcastAddress[3])-1)
+		document.getElementById("DHCPrange").value = DHCPbase + '-' + DHCPhigher;
+	}
 }

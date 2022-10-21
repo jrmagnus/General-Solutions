@@ -18,10 +18,10 @@
     <div id="cards">
         <div class="card"> <!-- Mac Address Card -->
             <div class="carditems">
-                <div id="cardtitle">
+                <div id="cardtitle" id="macaddress">
                     Mac Address Formater
                 </div>
-                <div id="macaddress" class="macaddress">
+                <div class="cardContent">
                     <input type="text" class="form__input" id="txtmac" placeholder="MAC Address" required="" />
                     <p>
                         Symbol:
@@ -32,18 +32,19 @@
                         <input type="radio" name="radialicon" id="spacer3" class="macspacer">
                         <label for="spacer1"> . </label>
                     </p>
-                    <p>
-                        <input type="button" class=button value="Format" id="macaddressbtn" onclick="formatmac()">
-                    </p>
+                    <div class="buttonContainer">
+                        <input type="button" class="button" value="Format" id="btnmacaddress" onclick="formatmac()">
+                    </div>
                 </div>
             </div>
         </div>
+		
         <div class="card"> <!-- Password Generator Card -->
             <div class="carditems">
                 <div id="cardtitle">
                     Password Generator
                 </div>
-                <div class="generatepassword" id="generatepassword">
+                <div class="cardContent" id="generatepassword">
                     <div id="cardmenu">
                         <div id="passwordsettings">
                             <input class="generatepasswordset" type="number" id="passwordquantity" value=1> Quantity
@@ -51,27 +52,35 @@
                         </div>
                     </div>
                     <input type="text" id="txtgeneratepassword" name="generatepassword" placeholder="Password">
-                    <input type="button" id="btngeneratepassword" class="button" name="btngeneratepassword" value="Generate" onclick="generatepassword()">
+                    <div class="buttonContainer">
+						<input type="button" id="btngeneratepassword" class="button" value="Generate" onclick="generatepassword()">
+					</div>
                     <ol id="passwordlist"></ol>
                 </div>
             </div>
         </div>
+
         <div class="card"> <!-- CIDR Calculator Card -->
             <div class="carditems">
                 <div id="cardtitle">
                     CIDR Calculator
                 </div>
-				<div class="user_input">
+				<div class="cardContent">
 					<input id="cidrInput" placeholder="Range" class="form__input">
-					<p>
-						<input type="button" class=button value="Calculate" id="cidr_button" onclick="cidrCalculate()">
+					<p class="cidrtxt">
+						<span>Address Range:</span>
+						<output id="ipRange"></output>
 					</p>
+					<p class="cidrtxt">
+						<span>Usable Address:</span>
+						<output id="DHCPrange"></output>
+					</p>
+					<div class="buttonContainer">
+						<input type="button" class="button" value="Calculate" onclick="cidrCalculate()">		
+					</div>
 				</div>
-				<textarea id="response">
-					<!-- i'm sleepy, BUT THIS IS WORKING! -->
-				</textarea>				
             </div>
-        </div>s
+        </div>
     </div>
 <script src="gs-script.js"></script>
 </body>
