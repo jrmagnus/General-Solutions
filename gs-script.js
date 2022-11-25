@@ -48,7 +48,7 @@ function formatmac() {
     //to change MacAddress format to ex. AB:CD:EF:01:23:45
     var macaddress = document.getElementById("txtmac").value
     if ( macaddress.length < 12 || macaddress.length > 17 ) {
-        alert("Macadress wrong length, input like, '01 23 45 67 89 0A' or '01234567890A'") 
+        alert("Macadress wrong length, input like, '01 23 45 67 89 0A' or '01234567890A'") ;
     } else {
         //seletc separator icon
         var macspacer = document.getElementsByName('radialicon')
@@ -63,10 +63,19 @@ function formatmac() {
         
         //format
         macaddress = macaddress.toUpperCase()
-        macaddress = macaddress.replace(/\W/ig, '')
-        macaddress = macaddress.replace(/(.{2})/g, "$1" + spcr)
-        macaddress = macaddress.slice(0, -1)
-        document.getElementById("txtmac").value = macaddress
+        if (macaddress.match(/[G-Z]/g)) {
+			alert("This isn't a valid MAC");
+		} else {
+			macaddress = macaddress.replace(/\W/ig, '');
+			macaddress = macaddress.replace(/(.{2})/g, "$1" + spcr);
+			macaddress= macaddress.slice(0, -1);
+			document.getElementById("txtmac").value = macaddress;
+
+			//copy to clipboard
+			var copyText = document.getElementById("txtmac");
+			copyText.select();
+			document.execCommand("copy")
+		}
 
         //copy to clipboard
         var copyText = document.getElementById("txtmac");
@@ -75,6 +84,7 @@ function formatmac() {
     }
 
 }
+
 function cidrCalculate() {
 	var block = document.getElementById("cidrInput").value.split("/"); // block[0] = base address, block[1] = netmask
 	var ipAddress = block[0].split('.');
