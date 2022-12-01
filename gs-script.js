@@ -63,19 +63,20 @@ function formatmac() {
         
         //format
         macaddress = macaddress.toUpperCase()
+        macaddress = macaddress.toUpperCase()
         if (macaddress.match(/[G-Z]/g)) {
-            macaddress = macaddress.replace(/(.{2})/g, "$1" + spcr)				alert("This isn't a valid MAC");
-            macaddress = macaddress.slice(0, -1)			} else {
-            document.getElementById("txtmac").value = macaddress				macaddress = macaddress.replace(/\W/ig, '');
-                macaddress = macaddress.replace(/(.{2})/g, "$1" + spcr);
-                macaddress= macaddress.slice(0, -1);
-                document.getElementById("txtmac").value = macaddress;
-    
-                //copy to clipboard
-                var copyText = document.getElementById("txtmac");
-                copyText.select();
-                document.execCommand("copy")
-            }
+			alert("This isn't a valid MAC");
+		} else {
+			macaddress = macaddress.replace(/\W/ig, '');
+			macaddress = macaddress.replace(/(.{2})/g, "$1" + spcr);
+			macaddress= macaddress.slice(0, -1);
+			document.getElementById("txtmac").value = macaddress;
+
+			//copy to clipboard
+			var copyText = document.getElementById("txtmac");
+			copyText.select();
+			document.execCommand("copy")
+		}
 
         //copy to clipboard
         var copyText = document.getElementById("txtmac");
