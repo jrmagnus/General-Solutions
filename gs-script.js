@@ -8,7 +8,7 @@ function generatepassword() {
 
     //get info
     var passwordquantity = document.getElementById('passwordquantity').value
-    var chars = "0123456789abcdefghijkmnopqrstuvwxyzABCDEFGHIJKLMNPQRSTUVWXYZ";
+    var chars = "0123456789abcdefghkmnopqrstuvwxyzABCDEFGHKLMNPQRSTUVWXYZ";
     var passwordlength = (document.getElementById('passwordlength').value - 1)
 
     //create password
