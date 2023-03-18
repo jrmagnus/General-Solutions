@@ -120,3 +120,21 @@ function cidrCalculate() {
 		document.getElementById("DHCPrange").value = DHCPbase + '-' + DHCPhigher;
 	}
 }
+
+function criarUsuario(nomeCompleto) {
+    let partesNome = nomeCompleto.split(" ");
+    let primeiroNome = partesNome[0];
+    let sobrenomes = partesNome.slice(1);
+    let usuario = primeiroNome;
+    
+    for (let i = 0; i < sobrenomes.length; i++) {
+      let sobrenome = sobrenomes[i];
+      let numCaracteres = Math.min(sobrenome.length, Math.floor(Math.random() * 4) + 1);
+      usuario += sobrenome.slice(0, numCaracteres);
+      if (usuario.length >= 16) {
+        break;
+      }
+    }
+    
+    return usuario.toLowerCase();
+  }
