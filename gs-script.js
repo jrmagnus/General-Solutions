@@ -121,20 +121,20 @@ function cidrCalculate() {
 	}
 }
 
-function criarUsuario(nomeCompleto) {
-    let partesNome = nomeCompleto.split(" ");
-    let primeiroNome = partesNome[0];
-    let sobrenomes = partesNome.slice(1);
-    let usuario = primeiroNome;
-    
-    for (let i = 0; i < sobrenomes.length; i++) {
-      let sobrenome = sobrenomes[i];
-      let numCaracteres = Math.min(sobrenome.length, Math.floor(Math.random() * 4) + 1);
-      usuario += sobrenome.slice(0, numCaracteres);
-      if (usuario.length >= 16) {
+function createUsername(fullName) {
+    const nameParts = fullName.split(" ");
+    const firstName = nameParts[0];
+    const surnames = nameParts.slice(1);
+    let username = firstName;
+  
+    for (let i = 0; i < surnames.length; i++) {
+      const surname = surnames[i];
+      const numCharacters = Math.min(surname.length, Math.floor(Math.random() * 4) + 1);
+      username += surname.slice(0, numCharacters);
+      if (username.length >= 16) {
         break;
       }
     }
-    
-    return usuario.toLowerCase();
+  
+    return username.toLowerCase();
   }
