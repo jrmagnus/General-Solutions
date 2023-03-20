@@ -139,4 +139,8 @@ function createUsername() {
   
     username = username.toLowerCase();
     document.getElementById("username").value = username;
+
+    var copyText = document.getElementById("username");
+    copyText.select();
+    document.execCommand("copy");
   }
