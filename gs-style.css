@@ -9,7 +9,7 @@
 }
 
 header {
-    diplay: flex;
+    /* display: flex; */
     text-align: center;
     width: 100%;
     margin: 0px;
@@ -42,7 +42,7 @@ body {
 .card {
     background-color: var(--card-color);
     border: 1px solid var(--border-color);
-    height-min: 260px;
+    min-height: 260px;
     width: 300px;
     border-radius: 10px;
     position: relative;
@@ -72,7 +72,6 @@ input {
     height: 100%;
     color: var(--text-color);
     font-size: 1,2rem;
-	
 }
 
 #generatepassword {

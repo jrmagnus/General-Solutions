@@ -69,7 +69,7 @@ function formatmac() {
 		} else {
 			macaddress = macaddress.replace(/\W/ig, '');
 			macaddress = macaddress.replace(/(.{2})/g, "$1" + spcr);
-			macaddress= macaddress.slice(0, -1);
+			macaddress = macaddress.slice(0, -1);
 			document.getElementById("txtmac").value = macaddress;
 
 			//copy to clipboard
@@ -121,7 +121,8 @@ function cidrCalculate() {
 	}
 }
 
-function createUsername(fullName) {
+function createUsername() {
+    let fullName = document.getElementById("username").value;
     const nameParts = fullName.split(" ");
     const firstName = nameParts[0];
     const surnames = nameParts.slice(1);
@@ -136,5 +137,6 @@ function createUsername(fullName) {
       }
     }
   
-    return username.toLowerCase();
+    username = username.toLowerCase();
+    document.getElementById("username").value = username;
   }
