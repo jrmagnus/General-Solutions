@@ -137,6 +137,7 @@ function createUsername() {
       }
     }
   
+    username = username.replace(/[^a-zA-Z]/g, '');
     username = username.toLowerCase();
     document.getElementById("username").value = username;
 
