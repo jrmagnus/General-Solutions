@@ -122,7 +122,14 @@ input {
 }
 
 footer {
-    align-items: end;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+}
+
+.linkgithub {
+    text-decoration: none;
+    color: var(--border-color);
 }
 
 .cidrtxt {
