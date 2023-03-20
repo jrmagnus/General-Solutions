@@ -137,6 +137,16 @@ function createUsername() {
       }
     }
   
+    username = username
+        .replace(/[àáâãäå]/g, 'a')
+        .replace(/[ç]/g, 'c')
+        .replace(/[èéêë]/g, 'e')
+        .replace(/[ìíîï]/g, 'i')
+        .replace(/[ñ]/g, 'n')
+        .replace(/[òóôõö]/g, 'o')
+        .replace(/[ùúûü]/g, 'u')
+        .replace(/[ýÿ]/g, 'y')
+        .toLowerCase();
     username = username.replace(/[^a-zA-Z]/g, '');
     username = username.toLowerCase();
     document.getElementById("username").value = username;
