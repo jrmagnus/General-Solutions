@@ -122,7 +122,7 @@ function cidrCalculate() {
 }
 
 function createUsername() {
-    let fullName = document.getElementById("username").value;
+    let fullName = document.getElementById("fullName").value;
     const nameParts = fullName.split(" ");
     const firstName = nameParts[0];
     const surnames = nameParts.slice(1);
