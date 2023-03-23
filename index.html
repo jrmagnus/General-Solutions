@@ -46,12 +46,20 @@
                 </div>
                 <div class="cardContent" id="generatepassword">
                     <div id="cardmenu">
-                        <div id="passwordsettings">
+                        <div id="passwordsettings" class="passwordsettings">
                             <input class="generatepasswordset" type="number" id="passwordquantity" value=1> Quantity
                             <input class="generatepasswordset" type="number" id="passwordlength" value=12> Length
                         </div>
                     </div>
                     <input type="text" id="txtgeneratepassword" name="generatepassword" placeholder="Password" readonly>
+                    <div class="charsselect" id="charsselect">
+                        <input type="checkbox" name="AaBb" id="charsletters" checked>
+                        <label for="charsletters">AaBb</label>
+                        <input type="checkbox" name="0123" id="charsnumbers" checked>
+                        <label for="charsnumbers">0123</label>
+                        <input type="checkbox" name="@#$!" id="charsspecials" checked>
+                        <label for="charsspecials">!@#$</label>
+                    </div>
                     <div class="buttonContainer">
 						<input type="button" id="btngeneratepassword" class="button" value="Generate" onclick="generatepassword()">
 					</div>

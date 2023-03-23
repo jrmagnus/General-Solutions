@@ -8,8 +8,24 @@ function generatepassword() {
 
     //get info
     var passwordquantity = document.getElementById('passwordquantity').value
-    var chars = "0123456789abcdefghkmnopqrstuvwxyzABCDEFGHKLMNPQRSTUVWXYZ";
+    var charsLetters = "abcdefghkmnopqrstuvwxyzABCDEFGHKLMNPQRSTUVWXYZ";
+    var charsSpecial = "!@#$%^&*~";
+    var charsNumbers = "0123456789";
+    var chars = '';
     var passwordlength = (document.getElementById('passwordlength').value - 1)
+
+    const charsLettersCheck = document.getElementById('charsletters');
+    if (charsLettersCheck.checked) {
+        chars = chars + charsLetters;
+    }
+    const charsNumbersCheck = document.getElementById('charsnumbers');
+    if (charsNumbersCheck.checked) {
+        chars = chars + charsNumbers;
+    }
+    const charsSpecialCheck = document.getElementById('charsspecials');
+    if (charsSpecialCheck.checked) {
+        chars = chars + charsSpecial;
+    }
 
     //create password
     if (passwordquantity > 1) {

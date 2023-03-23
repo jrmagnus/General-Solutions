@@ -37,10 +37,6 @@ body {
     text-align: center;
 }
 
-/* #cardpasswordgenerator {
-    height-min: 260px;
-} */
-
 .card {
     background-color: var(--card-color);
     border: 1px solid var(--border-color);
@@ -100,8 +96,12 @@ input {
     margin-top: 10px;
 }
 
+.charsselect {
+    padding: 1em;
+}
+
 #btngeneratepassword {
-    margin-top: 80px;
+    margin-top: 1.5em;
 }
 
 #btnmacaddress {
