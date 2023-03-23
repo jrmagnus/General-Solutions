@@ -133,7 +133,7 @@ footer {
 }
 
 .cidrtxt {
-	color: white;
+	color: var(--title-color);
 	text-align: center;
 	line-height: 15px;
 }

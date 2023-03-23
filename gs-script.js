@@ -1,5 +1,5 @@
-//to Password Gerenation
-function generatepassword() {    
+function generatepassword() { 
+    //to Password Gerenation   
     //clear textbox
     document.getElementById("txtgeneratepassword").value = ''
     var password = document.getElementById('txtgeneratepassword').value
@@ -8,12 +8,13 @@ function generatepassword() {
 
     //get info
     var passwordquantity = document.getElementById('passwordquantity').value
+    var passwordlength = (document.getElementById('passwordlength').value - 1)
     var charsLetters = "abcdefghkmnopqrstuvwxyzABCDEFGHKLMNPQRSTUVWXYZ";
     var charsSpecial = "!@#$%^&*~";
     var charsNumbers = "0123456789";
     var chars = '';
-    var passwordlength = (document.getElementById('passwordlength').value - 1)
 
+    //chars selection
     const charsLettersCheck = document.getElementById('charsletters');
     if (charsLettersCheck.checked) {
         chars = chars + charsLetters;
