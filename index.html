@@ -51,7 +51,7 @@
                             <input class="generatepasswordset" type="number" id="passwordlength" value=12> Length
                         </div>
                     </div>
-                    <input type="text" id="txtgeneratepassword" name="generatepassword" placeholder="Password">
+                    <input type="text" id="txtgeneratepassword" name="generatepassword" placeholder="Password" readonly>
                     <div class="buttonContainer">
 						<input type="button" id="btngeneratepassword" class="button" value="Generate" onclick="generatepassword()">
 					</div>
@@ -89,7 +89,7 @@
                 </div>
                 <div class="cardContent">
                     <input type="text" class="form__input" id="fullName" placeholder="Name" required="" />
-                    <input type="text" class="form__input" id="username" placeholder="Username" required="" />
+                    <input type="text" class="form__input" id="username" placeholder="Username" required="" readonly/>
                     <div class="buttonContainer">
                         <input type="button" class="button" value="Create" id="btnusername" onclick="createUsername()">
                     </div>
