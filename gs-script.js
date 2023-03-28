@@ -69,13 +69,13 @@ function formatmac() {
     } else {
         //seletc separator icon
         var macspacer = document.getElementsByName('radialicon')
-        var spcr = ''
+        var spacer = ''
         if ( macspacer[0].checked ) {
-            var spcr = ':'
+            var spacer = ':'
         } else if ( macspacer[1].checked ) {
-            var spcr = '-'
+            var spacer = '-'
         } else if ( macspacer[2].checked ) {
-            var spcr = '.'
+            var spacer = '.'
         }
         
         //format
@@ -85,7 +85,7 @@ function formatmac() {
 			alert("This isn't a valid MAC");
 		} else {
 			macaddress = macaddress.replace(/\W/ig, '');
-			macaddress = macaddress.replace(/(.{2})/g, "$1" + spcr);
+			macaddress = macaddress.replace(/(.{2})/g, "$1" + spacer);
 			macaddress = macaddress.slice(0, -1);
 			document.getElementById("txtmac").value = macaddress;
 
@@ -167,8 +167,9 @@ function createUsername() {
     username = username.replace(/[^a-zA-Z]/g, '');
     username = username.toLowerCase();
     document.getElementById("username").value = username;
+    document.getElementById("usernamesixchar").value = username.substring(0, 6);
 
     var copyText = document.getElementById("username");
     copyText.select();
     document.execCommand("copy");
-  }
+}
