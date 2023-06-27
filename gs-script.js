@@ -84,7 +84,7 @@ function formatmac() {
         if (macaddress.match(/[G-Z]/g)) {
 			alert("This isn't a valid MAC");
 		} else {
-			macaddress = macaddress.replace(/\W_/ig, '');
+			macaddress = macaddress.replace(/[\W_]/ig, '');
 			macaddress = macaddress.replace(/(.{2})/g, "$1" + spacer);
 			macaddress = macaddress.slice(0, -1);
 			document.getElementById("txtmac").value = macaddress;
