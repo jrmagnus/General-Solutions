@@ -58,12 +58,11 @@ function generatepassword() {
     document.getElementById("txtgeneratepassword").value = password
     var copyText = document.getElementById("txtgeneratepassword");
     copyText.select();
-    document.execCommand("copy");
 }
 
 function formatmac() {
     //to change MacAddress format to ex. AB:CD:EF:01:23:45
-    var macaddress = document.getElementById("txtmac").value
+    var macaddress = document.getElementById("txtmac").value.trim()
     if ( macaddress.length < 12 || macaddress.length > 17 ) {
         alert("Macadress wrong length, input like, '01 23 45 67 89 0A' or '01234567890A'") ;
     } else {
