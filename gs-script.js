@@ -172,3 +172,23 @@ function createUsername() {
     copyText.select();
     document.execCommand("copy");
 }
+
+let isTheme1 = true;
+
+function changeTheme() {
+    if (isTheme1) {
+        document.documentElement.style.setProperty('--bg-color', 'linear-gradient(to bottom right, rgb(20, 20, 20), rgb(3, 0, 15)');
+        document.documentElement.style.setProperty('--card-color', 'rgb(23, 23, 23)');
+        document.documentElement.style.setProperty('--title-color', 'rgb(214, 211, 230)');
+        document.documentElement.style.setProperty('--text-color', 'rgb(227, 225, 237)');
+        document.documentElement.style.setProperty('--border-color', 'rgba(255, 255, 255, 0.1)');
+    } else {
+        document.documentElement.style.setProperty('--bg-color', 'linear-gradient(to bottom right, rgb(255, 255, 255), rgb(242, 242, 242)');
+        document.documentElement.style.setProperty('--card-color', 'rgb(240, 240, 240)');
+        document.documentElement.style.setProperty('--title-color', 'rgb(33, 33, 33)');
+        document.documentElement.style.setProperty('--text-color', 'rgb(26, 26, 26)');
+        document.documentElement.style.setProperty('--border-color', 'rgba(0, 0, 0, 0.1)');
+
+    }
+    isTheme1 = !isTheme1;
+}
