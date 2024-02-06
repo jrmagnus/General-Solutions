@@ -197,7 +197,7 @@ function testDate() {
     var inputDate = document.getElementById("testdate").value;
     var dateObj = new Date(inputDate);
     
-    var day = dateObj.getDate();
+    var day = dateObj.getDate() + 1;
     var month = dateObj.getMonth() + 1;
     var year = dateObj.getFullYear();
 
