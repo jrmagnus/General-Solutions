@@ -192,3 +192,18 @@ function changeTheme() {
     }
     isTheme1 = !isTheme1;
 }
+
+function testDate() {
+    var inputDate = document.getElementById("testdate").value;
+    var dateObj = new Date(inputDate);
+    
+    var day = dateObj.getDate();
+    var month = dateObj.getMonth() + 1;
+    var year = dateObj.getFullYear();
+
+    day = (day < 10) ? "0" + day : day;
+    month = (month < 10) ? "0" + month : month;
+
+    var formattedDate = day + "/" + month + "/" + year;
+    alert("Date = "+formattedDate);
+}
