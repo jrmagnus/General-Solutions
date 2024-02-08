@@ -200,6 +200,6 @@ function testDate() {
     var month = parts[1];
     var day = parts[2];
 
-    dateTime = day + '-' + month + '-' + year
+    dateTime = day + '/' + month + '/' + year
     alert(dateTime);
 }
