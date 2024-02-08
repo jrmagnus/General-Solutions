@@ -201,5 +201,9 @@ function testDate() {
     var day = parts[2];
 
     dateTime = day + '/' + month + '/' + year
-    alert(dateTime);
+    if (isNaN(day) || isNaN(month) || isNaN(year)) {
+        alert("It's an valid date!")
+    } else {
+        alert(dateTime);
+    }
 }
