@@ -202,7 +202,7 @@ function testDate() {
 
     dateTime = day + '/' + month + '/' + year
     if (isNaN(day) || isNaN(month) || isNaN(year)) {
-        alert("It's an valid date!")
+        alert("Not a valid date!")
     } else {
         alert(dateTime);
     }
