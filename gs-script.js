@@ -173,7 +173,7 @@ function createUsername() {
     document.execCommand("copy");
 }
 
-let isTheme1 = true;
+let isTheme1 = false;
 
 function changeTheme() {
     if (isTheme1) {

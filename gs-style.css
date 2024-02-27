@@ -141,3 +141,8 @@ footer {
 #username {
     margin-top: 0.05em;
 }
+
+#ethanolmix {
+    color: var(--text-color);
+    text-align: center;
+}
